@@ -1,0 +1,208 @@
+<html>
+<head>
+<title>Chess</title>
+<link rel="stylesheet" href="chess.css">
+<script type="text/javascript" src="chess.js"></script>
+</head>
+
+<body onLoad="uncheckOptions(); render(board, 1);">
+<center>
+<p>&nbsp;</p>
+<table id="all" cellspacing=0>
+   <tr>
+      <td><!-- Trivial table cell --></td>
+      <td><!-- Trivial table cell --></td>
+      <td id="header" colspan=8><img src="chess.jpg"></td>
+      <td><!-- Trivial table cell --></td>
+   </tr>
+   <tr>
+      <td><!-- Trivial table cell --></td>
+      <td><!-- Trivial table cell --></td>
+      <td class="letter">a</td>
+      <td class="letter">b</td>
+      <td class="letter">c</td>
+      <td class="letter">d</td>
+      <td class="letter">e</td>
+      <td class="letter">f</td>
+      <td class="letter">g</td>
+      <td class="letter">h</td>
+      <td><!-- Trivial table cell --></td>
+   </tr>
+   <tr>
+      <td id="options" rowspan=6 valign="top">
+      
+         <!-- The options section. -->
+         <h1 id="optHead">Options</h1>
+         <form name="options">
+         <table cellspacing=3>
+            <tr>
+               <td valign=top>
+               <input type="checkbox" name="moveGuideOpt" onClick="moveGuide();" />
+               </td>
+               <td valign=top style="padding-left:5px;">
+               <a onClick="changeBox('document.options.moveGuideOpt'); moveGuide();">Move Guide</a>
+               </td>
+            </tr>
+            <tr>
+               <td valign=top>
+               <input type="checkbox" name="displayCom" onClick="displayInstructions();" />
+               </td>
+               <td valign=top style="padding-left:5px;">
+               <a onClick="changeBox('document.options.displayCom'); displayInstructions();">Display Instructions</a>
+               </td>
+            </tr>
+         </table>
+         </form>
+         
+      </td>
+      <td class="number">8</td>
+      <td colspan=8 rowspan=8>
+      
+      <!-- The board. -->
+      <table id="board" cellspacing=0 width=100%>
+         <tr>
+            <td id="A8" class="whiteSquare"></td>
+            <td id="B8" class="blackSquare"></td>
+            <td id="C8" class="whiteSquare"></td>
+            <td id="D8" class="blackSquare"></td>
+            <td id="E8" class="whiteSquare"></td>
+            <td id="F8" class="blackSquare"></td>
+            <td id="G8" class="whiteSquare"></td>
+            <td id="H8" class="blackSquare"></td>
+         </tr>
+         <tr>
+            <td id="A7" class="blackSquare"></td>
+            <td id="B7" class="whiteSquare"></td>
+            <td id="C7" class="blackSquare"></td>
+            <td id="D7" class="whiteSquare"></td>
+            <td id="E7" class="blackSquare"></td>
+            <td id="F7" class="whiteSquare"></td>
+            <td id="G7" class="blackSquare"></td>
+            <td id="H7" class="whiteSquare"></td>
+         </tr>
+         <tr>
+            <td id="A6" class="whiteSquare"></td>
+            <td id="B6" class="blackSquare"></td>
+            <td id="C6" class="whiteSquare"></td>
+            <td id="D6" class="blackSquare"></td>
+            <td id="E6" class="whiteSquare"></td>
+            <td id="F6" class="blackSquare"></td>
+            <td id="G6" class="whiteSquare"></td>
+            <td id="H6" class="blackSquare"></td>
+         </tr>
+         <tr>
+            <td id="A5" class="blackSquare"></td>
+            <td id="B5" class="whiteSquare"></td>
+            <td id="C5" class="blackSquare"></td>
+            <td id="D5" class="whiteSquare"></td>
+            <td id="E5" class="blackSquare"></td>
+            <td id="F5" class="whiteSquare"></td>
+            <td id="G5" class="blackSquare"></td>
+            <td id="H5" class="whiteSquare"></td>
+         </tr>
+         <tr>
+            <td id="A4" class="whiteSquare"></td>
+            <td id="B4" class="blackSquare"></td>
+            <td id="C4" class="whiteSquare"></td>
+            <td id="D4" class="blackSquare"></td>
+            <td id="E4" class="whiteSquare"></td>
+            <td id="F4" class="blackSquare"></td>
+            <td id="G4" class="whiteSquare"></td>
+            <td id="H4" class="blackSquare"></td>
+         </tr>
+         <tr>
+            <td id="A3" class="blackSquare"></td>
+            <td id="B3" class="whiteSquare"></td>
+            <td id="C3" class="blackSquare"></td>
+            <td id="D3" class="whiteSquare"></td>
+            <td id="E3" class="blackSquare"></td>
+            <td id="F3" class="whiteSquare"></td>
+            <td id="G3" class="blackSquare"></td>
+            <td id="H3" class="whiteSquare"></td>
+         </tr>
+         <tr>
+            <td id="A2" class="whiteSquare"></td>
+            <td id="B2" class="blackSquare"></td>
+            <td id="C2" class="whiteSquare"></td>
+            <td id="D2" class="blackSquare"></td>
+            <td id="E2" class="whiteSquare"></td>
+            <td id="F2" class="blackSquare"></td>
+            <td id="G2" class="whiteSquare"></td>
+            <td id="H2" class="blackSquare"></td>
+         </tr>
+         <tr>
+            <td id="A1" class="blackSquare"></td>
+            <td id="B1" class="whiteSquare"></td>
+            <td id="C1" class="blackSquare"></td>
+            <td id="D1" class="whiteSquare"></td>
+            <td id="E1" class="blackSquare"></td>
+            <td id="F1" class="whiteSquare"></td>
+            <td id="G1" class="blackSquare"></td>
+            <td id="H1" class="whiteSquare"></td>
+         </tr>
+      </table>
+      </td>
+      
+      <!-- Where we report whose turn it is. -->
+      <td id="whoseMove"></td>
+      
+      <td rowspan=8>
+      <div id="notationDiv">
+      
+      <!-- Where the notation goes. -->
+      <table id="notationTable" cellspacing=0>
+         <tr>
+            <td id="undoXHeader" style="font-size:12px;" colspan=3></td>
+         </tr>
+      </table>
+   
+      </div>
+      </td>
+   </tr>
+   <tr>
+      <td class="number">7</td>
+      
+      <!-- Where we report if a king is in check. -->
+      <td id="kingCheck" valign=top rowspan=2></td>
+      
+   </tr>
+   <tr>
+      <td class="number">6</td>
+   </tr>
+   <tr>
+      <td class="number">5</td>
+      <td><!-- Trivial table cell --></td>
+   </tr>
+   <tr>
+      <td class="number">4</td>
+      <td id="blackOuterGraveyard" valign="bottom"></td>
+   </tr>
+   <tr>
+      <td class="number">3</td>
+      <td id="blackInnerGraveyard" valign="top"></td>
+   </tr>
+   <tr>
+      <td id="buttonOptions" rowspan=2 valign=bottom>
+      <form style="display: inline;">
+      <input type="button" id="undoButton" value="Undo" onClick="undo();" /><br />
+      <input type="button" id="restartButton" value="Start Again" onClick="javascript:location.reload(true);" />
+      </form>
+      <td class="number">2</td>
+      <td id="whiteInnerGraveyard" valign="bottom"></td>
+   </tr>
+   <tr>
+      <td class="number">1</td>
+      <td id="whiteOuterGraveyard" valign="top"></td>
+   </tr>
+   <tr>
+      <td><!-- Trivial table cell --></td>
+      <td><!-- Trivial table cell --></td>
+      <td colspan=8 id="commentary">
+      <h1 id="comHead"></h1>
+      <p id="comBody"></p></td>
+      <td><!-- Trivial table cell --></td>
+   </tr>
+</table>
+</center>
+</body>
+</html> 

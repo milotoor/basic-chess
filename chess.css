@@ -1,0 +1,210 @@
+/******************************************************************************
+ *                                                                            *
+ * TITLE:       Chess CSS Stylesheet                                          *
+ *                                                                            *
+ * AUTHOR:      Milo Toor                                                     *
+ *                                                                            *
+ * DATE:        30 May 2011                                                   *
+ *                                                                            *
+ * DESCRIPTION: This is the CSS stylesheet to accompany the game of chess     *
+ *              located and played in chess.html. This file contains almost   *
+ *              all of the aesthetic styling seen in the game, though         *
+ *              the dynamics of the game are handled by chess.js. This file   *
+ *              should be considered nonessential to the play of the game.    *
+ *                                                                            *
+ * LEGEND:      HEADER              LINE NUMBER                               *
+ *              Nonboard Landmarks  35                                        *
+ *              Board Landmarks     63                                        *
+ *              Options Panel       95                                        *
+ *              Right Panel         129                                       *
+ *              Notation Box        165                                       *
+ *              Commentary          198                                       *
+ *                                                                            *
+ ******************************************************************************/
+
+/* @font-face kit by Fonts2u (https://fonts2u.com/chess-alpha-2.font) */
+@font-face {
+   font-family: "Chess Alpha 2";
+   src:         url("ChessAlpha2.woff") format("woff");
+   font-weight: normal;
+   font-style:  normal;
+}
+
+
+/******************************************************************************
+ *** NONBOARD LANDMARKS ******************************** NONBOARD LANDMARKS ***
+ ******************************************************************************/
+ 
+#all {
+   border:      0px;
+   font-family: "Courier New";
+   font-size:   15px;
+   text-align:  center;
+   cursor:      default;
+}
+
+td.letter {
+   padding-bottom: 7px;
+}
+
+td.number {
+   text-align:    right;
+   padding-right: 10px;
+   width:         30px;
+}
+
+#header {
+   vertical-align: middle;
+   height:         60px;
+}
+
+
+/******************************************************************************
+ *** BOARD LANDMARKS ************************************** BOARD LANDMARKS ***
+ ******************************************************************************/
+
+#board {
+   text-align:  center;
+   border:      black 1px solid;
+   font-family: "Chess Alpha 2";
+   font-size:   25px;
+}
+
+td.whiteSquare {
+   width:            40px;
+   height:           40px;
+   background-color: white;
+}
+
+td.blackSquare {
+   width:            40px;
+   height:           40px;
+   background-color: #cccccc;
+}
+
+td.moveGuideWhite {
+   background-color: #ffcccc;
+}
+
+td.moveGuideBlack {
+   background-color: #ff9999;
+}
+
+
+/******************************************************************************
+ *** OPTIONS PANEL ****************************************** OPTIONS PANEL ***
+ ******************************************************************************/
+ 
+#options {
+   width:      150px;
+   text-align: left;
+}
+
+#optHead {
+   font-size:   15px;
+   font-weight: normal;
+}
+
+#buttonOptions {
+   line-height: 170%;
+   text-align:  right;
+}
+
+#undoButton, #restartButton {
+   font-family:      "Courier New";
+   font-weight:      bold;
+   background-color: #ffffe9;
+   border:           3px double #000000;
+   cursor:           pointer;
+}
+
+#undoButton:hover, #restartButton:hover {
+   color:            white;
+   background-color: #990000;
+   border-color:     white
+}
+
+
+/******************************************************************************
+ *** RIGHT PANEL ********************************************** RIGHT PANEL ***
+ ******************************************************************************/
+
+#whoseMove {
+   text-align:   left;
+   font-weight:  bold;
+   padding-left: 15px;
+}
+
+#kingCheck {
+   text-align:   left;
+   font-size:    13px;
+   font-weight:  bold;
+   padding-left: 15px;
+   color:        red;
+}
+
+#whiteInnerGraveyard, #blackOuterGraveyard {
+   height:       40px;
+   width:        142px;
+   font-family:  "Chess Alpha 2";
+   font-size:    25px;
+   text-align:   left;
+   padding-left: 15px;
+}
+
+#whiteOuterGraveyard, #blackInnerGraveyard {
+   height:       40px;
+   font-family:  "Chess Alpha 2";
+   font-size:    25px;
+   text-align:   left;
+   padding-left: 15px;
+}
+
+
+/******************************************************************************
+ *** NOTATION BOX ******************************************** NOTATION BOX ***
+ ******************************************************************************/
+ 
+#notationDiv {
+   text-align:  left;
+   line-height: 150%;
+   height:      320px;
+   width:       220px;
+   overflow:    auto;
+}
+
+td.notationNum {
+   vertical-align: middle;
+   font-weight:    bold;
+   width:          40px;
+   height:         30px;
+   padding:        0px;
+}
+
+td.notationMove {
+   vertical-align: middle;
+   width:          80px;
+   padding-left:   5px;
+}
+
+a.notary:hover {
+   background-color: #990000;
+   color:            white;
+   cursor:           pointer;
+}
+
+
+/******************************************************************************
+ *** COMMENTARY ********************************************** COMMENTARY *****
+ ******************************************************************************/
+
+#commentary {
+   width:       320px;
+   text-align:  left;
+   padding-top: 15px;
+}
+
+#comHead {
+   font-size:   20px;
+   font-weight: bold;
+}
